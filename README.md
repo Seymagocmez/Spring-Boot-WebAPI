@@ -1,4 +1,4 @@
-# Spring Boot Web API Demo
+# Spring Boot Web API - User Controller
 
 ## Proje Tanımı
 <div align="center">
