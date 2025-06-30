@@ -1,4 +1,4 @@
-com\example\demo\UserController.class
 com\example\demo\DemoApplication.class
+com\example\demo\controller\UserController.class
 com\example\demo\model\User.class
 com\example\demo\dto\UserRequest.class
