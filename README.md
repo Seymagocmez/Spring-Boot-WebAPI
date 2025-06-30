@@ -4,7 +4,8 @@
 
 Spring Boot Web API Demo, Java ve Spring Boot kullanılarak geliştirilmiş, temel RESTful servisleri sunan bir web API projesidir. Hızlıca CRUD işlemleri, API testleri ve modern web servis mimarisi öğrenmek isteyenler için ideal bir başlangıç noktasıdır.
 
----
+Bu projede, kurumsal projelerde yaygın olarak tercih edilen ve geniş topluluk desteğine sahip olan Java Spring Boot kullanılmıştır. RESTful mimari benimsenmiş, Model-View-Controller (MVC) tasarım deseni uygulanmıştır. Veri transferinde güvenlik ve esneklik için DTO (Data Transfer Object) yapısı tercih edilmiştir. Kullanıcı kimlikleri için benzersizliği ve güvenliği sağlamak amacıyla UUID kullanılmıştır. Kodun sürdürülebilirliği ve güvenliği için mümkün olduğunca immutable (değiştirilemez) nesneler ve kapsülleme (private/final değişkenler) tercih edilmiştir. API'nin doğruluğu ve işlevselliği Postman ve Swagger UI araçları ile test edilmiştir.
+
 
 ## Gereksinimler
 
@@ -17,8 +18,6 @@ Projeye başlamadan önce aşağıdaki yazılımların kurulu olması gerekir:
 - **IDE:** IntelliJ IDEA, Eclipse veya VS Code ([Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack))
 - **Maven** (proje ile birlikte wrapper olarak gelir, ayrıca yüklemenize gerek yok)
 - (Opsiyonel) **Postman** veya **Swagger UI** ile API testleri
-
----
 
 ## Kurulum Adımları
 
@@ -57,8 +56,6 @@ spring.application.name=demo
 ```
 
 Port veya başka ayarları değiştirmek için bu dosyayı düzenleyebilirsiniz.
-
----
 
 ## Kullanım Kılavuzu
 
@@ -145,8 +142,6 @@ Swagger/OpenAPI desteği eklediyseniz, arayüze şu adresten ulaşabilirsiniz:
 http://localhost:8080/swagger-ui.html
 ```
 
----
-
 ## Özellikler
 
 - Spring Boot ile hızlı kurulum ve başlatma
@@ -154,17 +149,19 @@ http://localhost:8080/swagger-ui.html
 - Kolayca genişletilebilir yapı
 - Testler için hazır altyapı (JUnit)
 - Maven ile bağımlılık yönetimi
-
----
-
 ## Proje Yapısı
-
 ```
 Spring-Boot-WebAPI/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/example/demo/
-│   │   │   └── DemoApplication.java
+│   │   │   ├── DemoApplication.java
+│   │   │   ├── controller/
+│   │   │   │   └── UserController.java
+│   │   │   ├── dto/
+│   │   │   │   └── UserRequest.java
+│   │   │   └── model/
+│   │   │       └── User.java
 │   │   └── resources/
 │   │       └── application.properties
 │   └── test/
@@ -176,11 +173,13 @@ Spring-Boot-WebAPI/
 ```
 
 - **DemoApplication.java:** Ana uygulama dosyası, Spring Boot'u başlatır.
+- **controller/UserController.java:** Kullanıcı işlemleriyle ilgili REST endpoint'lerini barındırır.
+- **dto/UserRequest.java:** Kullanıcıdan gelen istek verilerini taşımak için kullanılan veri transfer nesnesi.
+- **model/User.java:** Kullanıcı modelini ve temel alanlarını tanımlar.
 - **application.properties:** Uygulama yapılandırma dosyası.
 - **DemoApplicationTests.java:** Temel test sınıfı.
 - **pom.xml:** Bağımlılık ve derleme ayarları.
 
----
 
 ## Özelleştirme
 
@@ -191,8 +190,6 @@ Spring-Boot-WebAPI/
 - **Bağımlılık Eklemek:**
   `pom.xml` dosyasına yeni bağımlılıklar ekleyin ve `./mvnw clean install` komutunu çalıştırın.
 
----
-
 ## Sorun Giderme
 
 - **JAVA_HOME Hatası:**
@@ -201,33 +198,48 @@ Spring-Boot-WebAPI/
   `application.properties` dosyasında farklı bir port belirleyin.
 - **Bağımlılık Hataları:**
   `./mvnw clean install` komutunu çalıştırarak temiz derleme yapın.
+## Proje Süreci 
 
----
+API geliştirme sürecinde, ASP.NET, PHP, Python Flask ve Java Spring Boot gibi çeşitli dil ve framework alternatifleri değerlendirilmiştir. Java Spring Boot'un tercih edilme nedenleri şunlardır:
 
-## Katkı Sağlama
+- Kurumsal projelerde yaygın olarak kullanılması,
+- Geniş ve aktif bir topluluğa sahip olması,
+- RESTful mimariyi güçlü şekilde desteklemesi,
+- Gelişmiş güvenlik ve yapılandırma seçenekleri sunması.
 
-1. Fork'layın ve yeni bir branch oluşturun.
-2. Kod stiline ve proje yapısına uygun geliştirme yapın.
-3. Açıklayıcı commit mesajları kullanın.
-4. Pull request açmadan önce testlerin geçtiğinden emin olun.
+Projede REST tarzı mimari benimsenmiştir. Bu mimari, modern web servislerinde esneklik ve ölçeklenebilirlik sağlamaktadır. REST mimarisi hakkında daha fazla bilgi için [bu yazıyı](https://github.com/Seymagocmez/web_api?tab=readme-ov-file#3-web-api-t%C3%BCrleri-ve-baz%C4%B1-mimariler) inceleyebilirsiniz.
 
-Daha fazla bilgi için [CONTRIBUTING.md](CONTRIBUTING.md) dosyasına göz atabilirsiniz. (Varsa)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/726b626d-a030-42b6-9fe3-deb309564ba7" alt="Image description" width="400"/>
+  <p><em>Örnek bir MVC yapısı</em></p>
+</div>
+Ayrıca, projede Model-View-Controller (MVC) tasarım deseni uygulanmıştır. MVC, kodun katmanlara ayrılmasını sağlayarak okunabilirlik ve sürdürülebilirlik sunar. Controller sınıfları gelen istekleri karşılar, Model sınıfları veriyi temsil eder, DTO (Data Transfer Object) ise veri transferini kolaylaştırır ve dışa yalnızca gerekli alanların açılmasını sağlar.
 
----
+Geliştirme ortamı olarak Visual Studio Code seçilmiş, JDK kurulumu ve Spring Initializr ile temel proje oluşturulmuştur. Gerekli eklentiler ve bağımlılıklar yüklendikten sonra, "pom.xml not found" gibi yaygın bir hata ile karşılaşılmış ve bu sorun, projenin kök dizininde pom.xml dosyasının bulunması ve Maven'ın doğru kurulması ile giderilmiştir.
 
-## Lisans
+Kodlama aşamasında, önce User modeli ve Controller oluşturulmuş, ardından veri transferinin daha güvenli ve esnek olması amacıyla DTO yapısına geçilmiştir. Özellikle POST isteklerinde, request body ile veri almak için DTO kullanımı tercih edilmiştir.
 
-Bu proje [MIT Lisansı](LICENSE) ile lisanslanmıştır.
+Spring Framework'te @RequestBody ve @PathVariable gibi anotasyonlar, gelen verinin işlenmesini kolaylaştırmakta ve kodun okunabilirliğini artırmaktadır.
 
----
+Model sınıflarında değişkenler private ve final olarak tanımlanmıştır. Bu yaklaşım;
+- **private** ile dışarıdan doğrudan erişimi engelleyerek kapsülleme sağlar,
+- **final** ile ise değerlerin değişmemesini garanti altına alır ve özellikle id gibi alanlarda güvenlik ve tutarlılık sunar.
 
-## İletişim & Destek
+Kullanıcı kimliği için UUID kullanılmıştır. UUID, benzersiz ve tahmin edilmesi zor bir kimlik oluşturduğu için güvenlik ve veri bütünlüğü açısından avantaj sağlar. Kullanıcı id'sinin uygulama içinde belirlenmesi, dışarıdan müdahaleyi engeller.
 
-Sorularınız veya katkı talepleriniz için:
-- E-posta: your.email@example.com
-- GitHub: [github.com/yourusername](https://github.com/yourusername)
-- LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+Test altyapısı olarak ilerleyen aşamalarda birim testlerin (unit test) eklenmesi planlanmaktadır. Bu sayede kodun doğruluğu ve güvenilirliği sürekli olarak kontrol edilebilecektir.
 
----
+Nesne tasarımında ise, mümkün olduğunca immutable (değiştirilemez) yapılar tercih edilmiştir. Immutable nesneler, hata olasılığını azaltır ve çoklu iş parçacığında güvenli uygulamalar geliştirilmesini kolaylaştırır.
 
-> "Kod yazmak, bir problemi çözmenin en eğlenceli yoludur. Sen de kendi hikayeni yazmaya başla!" 
+API'nin doğruluğu ve işlevselliği, Postman ve Swagger UI araçları ile test edilmiştir. Kurulum ve kullanım detayları için ilgili bölümlere başvurulabilir.
+
+🌐 Kaynaklar
+
+[Spring Boot Quick Start](https://www.youtube.com/watch?v=oRFCeRVWCNE)
+
+[Swagger Nedir, Ne İşe Yarar?](https://medium.com/android-t%C3%BCrkiye/swagger-nedir-ne-i%CC%87%C5%9Fe-yarar-e8c12a9e9e7f)
+
+[Building REST API Using Spring Boot](https://medium-com.translate.goog/@pratik.941/building-rest-api-using-spring-boot-a-comprehensive-guide-3e9b6d7a8951?_x_tr_sl=en&_x_tr_tl=tr&_x_tr_hl=tr&_x_tr_pto=tc)
+
+[Official Documentation From Spring Boot](https://docs.spring.io/spring-boot/)
+ 
