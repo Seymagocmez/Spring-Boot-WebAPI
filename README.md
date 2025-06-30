@@ -1,6 +1,10 @@
 # Spring Boot Web API Demo
 
 ## Proje Tanımı
+<div align="center">
+<img width="400" alt="webapi_thumb" src="https://github.com/user-attachments/assets/5e68eb64-0a6d-4439-a7bb-ecf93df79c44" />
+  
+</div>
 
 Spring Boot Web API Demo, Java ve Spring Boot kullanılarak geliştirilmiş, temel RESTful servisleri sunan bir web API projesidir. Hızlıca CRUD işlemleri, API testleri ve modern web servis mimarisi öğrenmek isteyenler için ideal bir başlangıç noktasıdır.
 
@@ -210,7 +214,7 @@ API geliştirme sürecinde, ASP.NET, PHP, Python Flask ve Java Spring Boot gibi 
 Projede REST tarzı mimari benimsenmiştir. Bu mimari, modern web servislerinde esneklik ve ölçeklenebilirlik sağlamaktadır. REST mimarisi hakkında daha fazla bilgi için [bu yazıyı](https://github.com/Seymagocmez/web_api?tab=readme-ov-file#3-web-api-t%C3%BCrleri-ve-baz%C4%B1-mimariler) inceleyebilirsiniz.
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/726b626d-a030-42b6-9fe3-deb309564ba7" alt="Image description" width="400"/>
+  <img src="https://github.com/user-attachments/assets/726b626d-a030-42b6-9fe3-deb309564ba7" alt="Image description" width="600"/>
   <p><em>Örnek bir MVC yapısı</em></p>
 </div>
 Ayrıca, projede Model-View-Controller (MVC) tasarım deseni uygulanmıştır. MVC, kodun katmanlara ayrılmasını sağlayarak okunabilirlik ve sürdürülebilirlik sunar. Controller sınıfları gelen istekleri karşılar, Model sınıfları veriyi temsil eder, DTO (Data Transfer Object) ise veri transferini kolaylaştırır ve dışa yalnızca gerekli alanların açılmasını sağlar.
@@ -242,4 +246,12 @@ API'nin doğruluğu ve işlevselliği, Postman ve Swagger UI araçları ile test
 [Building REST API Using Spring Boot](https://medium-com.translate.goog/@pratik.941/building-rest-api-using-spring-boot-a-comprehensive-guide-3e9b6d7a8951?_x_tr_sl=en&_x_tr_tl=tr&_x_tr_hl=tr&_x_tr_pto=tc)
 
 [Official Documentation From Spring Boot](https://docs.spring.io/spring-boot/)
+
+[Görsel 1](https://arifgokce.com/asp-net-web-api-token-based-authentication/)
+
+[Görsel 2](https://arifgokce.com/asp-net-web-api-token-based-authentication/)
+
+[Görsel 2](https://javapro.io/de/spring-boot/)
+
+[Görsel 2](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSn041zDaAZX26Ui9CS0wLvq8NTDNEsCNuH8Q&s)
  
